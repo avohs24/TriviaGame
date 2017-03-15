@@ -1,3 +1,7 @@
+
+//set up for the test questions and answers and multiple choices as an array of objects
+
+
 var quiz = [
 	{
 		question : "Q1: What is 2+2?",
@@ -35,33 +39,48 @@ var quiz = [
 
 ];
 
+//here I am setting the question number to 0
 var questionCount = 0;
-var userSelections = [];
 
+//Here I display my first object from my quiz array as a question and answers as buttons 
 function q1 (){
 	$("#testArea").html(quiz[0].question);
-	$('#answerA').append('<div><button>' + quiz[0].choices[0]);
-	$('#answerB').append('<div><button>' + quiz[0].choices[1]);
-	$('#answerC').append('<div><button>' + quiz[0].choices[2]);
-	$('#answerD').append('<div><button>' + quiz[0].choices[3]);
+	$('#answerA').append('<button>' + quiz[0].choices[0]);
+	$('#answerB').append('<button>' + quiz[0].choices[1]);
+	$('#answerC').append('<button>' + quiz[0].choices[2]);
+	$('#answerD').append('<button>' + quiz[0].choices[3]);
 
 }
 
+//here I run my q1 function when the player hits the start button 
 $('#start').click(q1);
 
 
 
+//All of the code above run and works 
 
+
+
+
+//Here I want to check if the button that the user clicked on was the correct answer 
 function checkAnswer(){
-	if(userChoice = quiz[0].correct){
+	console.log(this);
+	var userChoice = $(this); 
+	// console.log('userChoice ' , userChoice);
+	// console.log('quiz ', quiz[0].correct);
+	
+	if(userChoice == quiz[0].correct){
 		alert("You're Right!");
-	}else if(userChoice != quiz[0].correct){
+	}else{
 		alert("You're Wrong!");
 	}
 }
-var userChoice = $('#answerA').on("click", checkAnswer);
 
-console.log(userChoice);
-console.log(quiz[0].correct);
+$('#answerA').on("click", checkAnswer);
+$('#answerB').on("click", checkAnswer);
+$('#answerC').on("click", checkAnswer);
+$('#answerD').on("click", checkAnswer);
+
+
 
 
