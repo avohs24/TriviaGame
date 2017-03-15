@@ -42,13 +42,14 @@ var quiz = [
 //here I am setting the question number to 0
 var questionCount = 0;
 
+
 //Here I display my first object from my quiz array as a question and answers as buttons 
 function q1 (){
 	$("#testArea").html(quiz[0].question);
-	$('#answerA').append('<button>' + quiz[0].choices[0]);
-	$('#answerB').append('<button>' + quiz[0].choices[1]);
-	$('#answerC').append('<button>' + quiz[0].choices[2]);
-	$('#answerD').append('<button>' + quiz[0].choices[3]);
+	
+	for(var i = 0; i <= quiz[0].choices[i]; i++){
+		$('#answer').append("<button>" + quiz[0].choices[i]);
+	}
 
 }
 
@@ -60,26 +61,32 @@ $('#start').click(q1);
 //All of the code above run and works 
 
 
+$('#answer').on("click", function() {
 
-
-//Here I want to check if the button that the user clicked on was the correct answer 
-function checkAnswer(){
-	console.log(this);
-	var userChoice = $(this); 
-	// console.log('userChoice ' , userChoice);
-	// console.log('quiz ', quiz[0].correct);
-	
-	if(userChoice == quiz[0].correct){
-		alert("You're Right!");
-	}else{
-		alert("You're Wrong!");
-	}
+	var userChoice = $(this).choices[i];
+	console.log(userChoice);
 }
 
-$('#answerA').on("click", checkAnswer);
-$('#answerB').on("click", checkAnswer);
-$('#answerC').on("click", checkAnswer);
-$('#answerD').on("click", checkAnswer);
+	)
+
+//Here I want to check if the button that the user clicked on was the correct answer 
+// function checkAnswer(){
+// 	console.log(this);
+// 	var userChoice = $(this); 
+// 	// console.log('userChoice ' , userChoice);
+// 	// console.log('quiz ', quiz[0].correct);
+	
+// 	if(userChoice == quiz[0].correct){
+// 		alert("You're Right!");
+// 	}else{
+// 		alert("You're Wrong!");
+// 	}
+// }
+
+// $('#answerA').on("click", checkAnswer);
+// $('#answerB').on("click", checkAnswer);
+// $('#answerC').on("click", checkAnswer);
+// $('#answerD').on("click", checkAnswer);
 
 
 
